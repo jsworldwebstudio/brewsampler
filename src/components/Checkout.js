@@ -8,7 +8,8 @@ import { getCart, calculatePrice, calculateAmount, clearCart } from '../utils';
 import { withRouter } from 'react-router-dom';
 import ConfirmationModal from './ConfirmationModal';
 
-const apiUrl = process.env.API_URL || 'http://localhost:1337';
+// const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:1337';
+const apiUrl = process.env.REACT_APP_API_URL;
 const strapi = new Strapi(apiUrl);
 
 class _CheckoutForm extends Component {
