@@ -75,11 +75,11 @@ class Brews extends Component {
   };
 
   getImageBrewName = (brandName, brewName) => {
-    const newBrandName = brandName.toLowerCase().replace(/ /g, "-");
+    const newBrandName = brandName.toLowerCase().replace(/\s/g, "-");
     if (newBrandName === 'goose-island') {
-      return "gi-" + brewName.toLowerCase().replace(/ /g, "-") + ".png";
+      return "gi-" + brewName.toLowerCase().replace(/\s/g, "-") + ".png";
     } else {
-      return brewName.toLowerCase().replace(/ /g, "-") + ".jpg";
+      return brewName.toLowerCase().replace(/\s/g, "-") + ".jpg";
     }
   };
 

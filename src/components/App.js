@@ -55,7 +55,7 @@ class App extends Component {
 
   getImageBrandName = brandName => {
     // let newBrandName = brandName.replace(" ", "_");
-    return brandName.toLowerCase().replace(/ /g, "-");
+    return brandName.toLowerCase().replace(/\s/g, "-");
   };
 
   searchBrands = async () => {
