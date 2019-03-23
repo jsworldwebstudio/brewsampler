@@ -53,6 +53,11 @@ class App extends Component {
   //   });
   // };
 
+  getImageBrandName = brandName => {
+    // let newBrandName = brandName.replace(" ", "_");
+    return brandName.toLowerCase().replace(" ", "-");
+  };
+
   searchBrands = async () => {
     const response = await strapi.request('POST', '/graphql', {
       data: {
@@ -125,6 +130,7 @@ class App extends Component {
           justifyContent="around"
         >
           {/*this.filteredBrands(searchTerm, brands).map(brand => (*/}
+          {/*src={`${apiUrl}${brand.image.url}`}*/}
           {brands.map(brand => (
             <Box
               paddingY={4}
@@ -140,7 +146,7 @@ class App extends Component {
                       alt="Brand"
                       naturalHeight={1}
                       naturalWidth={1}
-                      src={`${apiUrl}${brand.image.url}`}
+                      src={`./images/brand-${this.getImageBrandName(brand.name)}.png`}
                     />
                   </Box>
                 }

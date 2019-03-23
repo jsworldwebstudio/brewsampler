@@ -74,6 +74,15 @@ class Brews extends Component {
     this.setState({ cartItems: filteredItems }, () => setCart(filteredItems));
   };
 
+  getImageBrewName = (brandName, brewName) => {
+    const newBrandName = brandName.toLowerCase().replace(" ", "_");
+    if (newBrandName === 'goose_island') {
+      return "gi-" + brewName.toLowerCase().replace(" ", "-") + ".png";
+    } else {
+      return brewName.toLowerCase().replace(" ", "-") + ".jpg";
+    }
+  };
+
   render() {
     const { brand, brews, cartItems, loadingBrews } = this.state;
     return ( 
@@ -123,7 +132,7 @@ class Brews extends Component {
                           alt="Brew"
                           naturalHeight={1}
                           naturalWidth={1}
-                          src={`${apiUrl}${brew.image.url}`}
+                          src={`./images/${this.getImageBrewName(brand, brew.name)}`}
                         />
                       </Box>
                     }
